@@ -1,9 +1,6 @@
 
 document.onkeydown = checkKey
 
-
-
-
 function checkKey(e) {
 
     var keycode;
@@ -13,97 +10,103 @@ function checkKey(e) {
     else if (e) {
         keycode = e.which;
     }
-
     if (keycode == 8) {
-
         back()
     }
-
-    if (keycode == 103) {
-
-        add(7)
-    }
+    if (keycode == 103) {add(7)}
     if (keycode == 104) {
-
         add(8)
     }
     if (keycode == 105) {
-
         add(9)
     }
     if (keycode == 102) {
-
         add(6)
     }
     if (keycode == 101) {
-
         add(5)
     }
     if (keycode == 100) {
-
         add(4)
     }
     if (keycode == 99) {
-
         add(3)
     }
     if (keycode == 98) {
-
         add(2)
     }
     if (keycode == 97) {
-
         add(1)
     }
     if (keycode == 96) {
-
         add(0)
     }
     if (keycode == 111) {
-
         add("/")
     }
     if (keycode == 107) {
-
         add("+")
     }
     if (keycode == 109) {
-
         add("-")
     }
     if (keycode == 106) {
-
         add("×")
     }
-
     if (keycode == 110) {
-
         add(".")
     }
     if (keycode == 13) {
-
         parts()
     } 10
-
-
 }
-
-
 
 function add(a) {
     let inp = document.getElementById('textMain')
-    if (inp.value == "0") {
-        inp.value = a
+    
+    let anterior = inp.value[inp.value.length - 1]
+
+    if (a == "+" || a == "/" || a == "×" || a == "-") {
+        
+        if (anterior == "+" || anterior == "/" || anterior == "×" || anterior == "-") {
+
+        }
+        else {
+            if (inp.value == "0") {
+                inp.value = a
+            }
+            else {
+                inp.value = inp.value + a
+            }
+        }
     }
     else {
-        inp.value = inp.value + a
+        if (inp.value == "0") {
+            inp.value = a
+        }
+        else {
+            inp.value = inp.value + a
+        }
     }
 }
 
 
-function clearAll() {
+function clearMain() {
     let inp = document.getElementById('textMain')
     inp.value = "0"
+}
+
+function clearAll() {
+    let upScreenThree = document.getElementById('textUpThree')
+    let upScreenTwo = document.getElementById('textUpTwo')
+    let upScreenOne = document.getElementById('textUpOne')
+    let middle = document.getElementById('textMiddle')
+    let inp = document.getElementById('textMain')
+    upScreenThree.value = ""
+    upScreenTwo.value = ""
+    upScreenOne.value = ""
+    middle.value = ""
+    inp.value= ""
 }
 
 function back() {
@@ -119,7 +122,17 @@ function back() {
 
 
 function parts() {
+    let upScreenThree = document.getElementById('textUpThree')
+    let upScreenTwo = document.getElementById('textUpTwo')
+    let upScreenOne = document.getElementById('textUpOne')
+    let middle = document.getElementById('textMiddle')
     let inp = document.getElementById('textMain')
+    upScreenThree.value = upScreenTwo.value
+    upScreenTwo.value = upScreenOne.value
+    upScreenOne.value = middle.value
+
+    middle.value = inp.value
+
     let vet = new Array
     let j = 0
     let aux = "";
@@ -142,12 +155,8 @@ function parts() {
             vet[j] = aux
         }
     }
-    // console.log(vet)
     calc(vet)
 }
-
-
-
 
 function calc(vet) {
     for (let i = 0; i < vet.length; i++) {
@@ -156,7 +165,7 @@ function calc(vet) {
                 let ant = ""
                 let j = i - 1
                 while (vet[j] == null) {
-                    j = j-1
+                    j = j - 1
                 }
                 ant = vet[j]
                 vet[j] = null
@@ -169,7 +178,7 @@ function calc(vet) {
                 let ant = ""
                 let j = i - 1
                 while (vet[j] == null) {
-                    j = j-1
+                    j = j - 1
                 }
                 ant = vet[j]
                 vet[j] = null
@@ -178,11 +187,9 @@ function calc(vet) {
                 vet[i + 1] = null
                 vet[i] = null
             }
-            
         }
     }
 
-    console.log(vet)
     for (let i = 0; i < vet.length; i++) {
 
         let ant = ""
@@ -191,14 +198,14 @@ function calc(vet) {
             if (vet[i] == "+") {
                 let j = i - 1
                 while (vet[j] == null) {
-                    j = j-1
+                    j = j - 1
                 }
                 ant = vet[j]
                 vet[j] = null
 
                 j = i + 1
                 while (vet[j] == null) {
-                    j = j+1
+                    j = j + 1
                 }
                 prox = vet[j]
                 vet[j] = null
@@ -210,14 +217,14 @@ function calc(vet) {
             else {
                 let j = i - 1
                 while (vet[j] == null) {
-                    j = j-1
+                    j = j - 1
                 }
                 ant = vet[j]
                 vet[j] = null
 
                 j = i + 1
                 while (vet[j] == null) {
-                    j = j+1
+                    j = j + 1
                 }
                 prox = vet[j]
                 vet[j] = null
@@ -237,27 +244,13 @@ function calc(vet) {
     }
 }
 
-
-function change() {
-    let inp = document.getElementById('textMain')
-
-    for (let i = 0; i < inp.value.length; i++) {
-        console.log(inp.value)
-        if (inp.value[i] != "/" && inp.value[i] != "+" && inp.value[i] != "-" && inp.value[i] != "×" && isNaN(inp.value[i]) == true) {
-            inp.value = retirar(inp.value, i)
-        }
-    }
-}
-
-
 function retirar(vet, i) {
-
+    console.log("aqiu",i,vet)
     let aux = ""
     for (let j = 0; j < vet.length; j++) {
         if (j != i) {
             aux += vet[j]
         }
-
     }
     return aux
 }

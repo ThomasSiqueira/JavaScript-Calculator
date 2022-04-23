@@ -12,36 +12,48 @@
 
     <link rel="icon" type="image/x-icon" href="/icone/favicon.ico">
     <script src="https://kit.fontawesome.com/1eb709d6ad.js" crossorigin="anonymous"></script>
-    
+
 </head>
 
 <body>
 
     <div id="topBar">
+        <div id="title"><i class="fa-brands fa-js"></i> <span>JavaScript Calculator</span></div>
 
     </div>
     <div id="bodyDiv">
         <div id="screem">
-                <output id="textMain" type="text" value="0" onchange="change()">
+            <output id="textUpThree" type="text" value="0"></output>
+            <output id="textUpTwo" type="text" value="0"></output>
+            <output id="textUpOne" type="text" value="0"></output>
+            <output id="textMiddle" type="text" value="0"></output>
+            <output id="textMain" type="text" value="0"></output>
 
 
-        </div>        
+        </div>
         <div id="buttons">
 
             <div id="dirButtons">
                 <ul>
-                    <li><button id="divider" value="/" onclick="add(value)"><i class="fa-solid fa-divide"></i></button></li>
-                    <li><button id="multiplier" value="×" onclick="add(value)"><i class="fa-solid fa-xmark"></i></button></li>
-                    <li><button id="subtraction" value="-" onclick="add(value)"><i class="fa-solid fa-minus"></i></button></li>
+                    <li><button id="divider" value="/" onclick="add(value)"><i class="fa-solid fa-divide"></i></button>
+                    </li>
+                    <li><button id="multiplier" value="×" onclick="add(value)"><i
+                                class="fa-solid fa-xmark"></i></button></li>
+                    <li><button id="subtraction" value="-" onclick="add(value)"><i
+                                class="fa-solid fa-minus"></i></button></li>
                     <li><button id="sum" value="+" onclick="add(value)"><i class="fa-solid fa-plus"></i></button></li>
-                    <li id="result"><button class="whiteButton" onclick="parts()"><i class="fa-solid fa-equals"></i></button></li>
+                    <li id="result"><button class="whiteButton" onclick="parts()"><i
+                                class="fa-solid fa-equals"></i></button></li>
                 </ul>
             </div>
             <div id="topButtons">
                 <ul class="top">
-                    <li><button id="percent" value="%" onclick="add(value)"><i class="fa-solid fa-percent"></i></button></li>
-                    <li><button class="redButton" id="clear"  onclick="clearAll()"><i class="fa-solid fa-c"></i></button></li>
-                    <li><button class="redButton" id="back" onclick="back()"><i class="fa-solid fa-angle-left"></i></button></li>
+                    <li><button id="ClearAll" onclick="clearAll()">CA</button>
+                    </li>
+                    <li><button class="redButton" id="clear" onclick="clearMain()"><i class="fa-solid fa-c"></i></button>
+                    </li>
+                    <li><button class="redButton" id="back" onclick="back()"><i
+                                class="fa-solid fa-angle-left"></i></button></li>
                 </ul>
 
             </div>
@@ -52,7 +64,7 @@
                             <li><button id="seven" value="7" onclick="add(value)">7</button></li>
                             <li><button id="four" value="4" onclick="add(value)">4</button></li>
                             <li><button id="one" value="1" onclick="add(value)">1</button></li>
-                            <li><button id="ans">ANS</button></li>
+                            <li><button id="percent" value="%" onclick="add(value)"><i class="fa-solid fa-percent"></i></button></li>
                         </ul>
                     </li>
                     <li class="numbH">
@@ -79,7 +91,10 @@
 
     </div>
     <div id="bottomBar">
-
+        <div id="linkGit">
+            <a href="https://github.com/ThomasSiqueira"><i id="gitIcon" class="fa-brands fa-github"></i>
+                <span>@ThomasSiqueira</span></a>
+        </div>
     </div>
 
 
