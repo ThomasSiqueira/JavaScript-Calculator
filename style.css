@@ -13,10 +13,6 @@ li {
     list-style-type: none;
 }
 
-ul{
-
-}
-
 button {
 
     border: none;
@@ -70,11 +66,10 @@ button:hover {
 
 #textMain{
     position: absolute;
-    background-color: transparent;
     top: 90px;
     text-align: end;
     border: none;
-    font-size: 20px;
+    font-size: 30px;
     height: 40px;
     width: 100%;
     text-decoration: none;

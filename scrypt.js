@@ -1,5 +1,92 @@
 
+document.onkeydown = checkKey
 
+
+
+
+function checkKey(e) {
+
+    var keycode;
+    if (window.event) {
+        keycode = window.event.keyCode;
+    }
+    else if (e) {
+        keycode = e.which;
+    }
+
+    if (keycode == 8) {
+
+        back()
+    }
+
+    if (keycode == 103) {
+
+        add(7)
+    }
+    if (keycode == 104) {
+
+        add(8)
+    }
+    if (keycode == 105) {
+
+        add(9)
+    }
+    if (keycode == 102) {
+
+        add(6)
+    }
+    if (keycode == 101) {
+
+        add(5)
+    }
+    if (keycode == 100) {
+
+        add(4)
+    }
+    if (keycode == 99) {
+
+        add(3)
+    }
+    if (keycode == 98) {
+
+        add(2)
+    }
+    if (keycode == 97) {
+
+        add(1)
+    }
+    if (keycode == 96) {
+
+        add(0)
+    }
+    if (keycode == 111) {
+
+        add("/")
+    }
+    if (keycode == 107) {
+
+        add("+")
+    }
+    if (keycode == 109) {
+
+        add("-")
+    }
+    if (keycode == 106) {
+
+        add("×")
+    }
+
+    if (keycode == 110) {
+
+        add(".")
+    }
+    if (keycode == 13) {
+
+        parts()
+    } 10
+
+
+}
 
 
 
@@ -47,15 +134,15 @@ function parts() {
                 vet[j] = val
                 j++
             }
-
         }
         else {
             aux += inp.value[i]
         }
-        if (i == inp.value.length-1) {
+        if (i == inp.value.length - 1) {
             vet[j] = aux
         }
     }
+    // console.log(vet)
     calc(vet)
 }
 
@@ -66,17 +153,36 @@ function calc(vet) {
     for (let i = 0; i < vet.length; i++) {
         if (vet[i] == "×" || vet[i] == "/") {
             if (vet[i] == "×") {
-                vet[i - 1] = Number(vet[i - 1]) * Number(vet[i + 1])
-                vet[i] = null
+                let ant = ""
+                let j = i - 1
+                while (vet[j] == null) {
+                    j = j-1
+                }
+                ant = vet[j]
+                vet[j] = null
+
+                vet[i - 1] = Number(ant) * Number(vet[i + 1])
                 vet[i + 1] = null
+                vet[i] = null
             }
             else {
-                vet[i - 1] = Number(vet[i - 1]) / Number(vet[i + 1])
-                vet[i] = null
+                let ant = ""
+                let j = i - 1
+                while (vet[j] == null) {
+                    j = j-1
+                }
+                ant = vet[j]
+                vet[j] = null
+
+                vet[i - 1] = Number(ant) / Number(vet[i + 1])
                 vet[i + 1] = null
+                vet[i] = null
             }
+            
         }
     }
+
+    console.log(vet)
     for (let i = 0; i < vet.length; i++) {
 
         let ant = ""
@@ -85,14 +191,14 @@ function calc(vet) {
             if (vet[i] == "+") {
                 let j = i - 1
                 while (vet[j] == null) {
-                    j = j--
+                    j = j-1
                 }
                 ant = vet[j]
                 vet[j] = null
 
                 j = i + 1
                 while (vet[j] == null) {
-                    j = j++
+                    j = j+1
                 }
                 prox = vet[j]
                 vet[j] = null
@@ -101,18 +207,17 @@ function calc(vet) {
                 vet[i] = null
             }
 
-            else{
-                console.log("aqui")
+            else {
                 let j = i - 1
                 while (vet[j] == null) {
-                    j = j--
+                    j = j-1
                 }
                 ant = vet[j]
                 vet[j] = null
 
                 j = i + 1
                 while (vet[j] == null) {
-                    j = j++
+                    j = j+1
                 }
                 prox = vet[j]
                 vet[j] = null
@@ -124,11 +229,35 @@ function calc(vet) {
         }
     }
     let inp = document.getElementById('textMain')
-    console.log(vet)
     for (let i = 0; i < vet.length; i++) {
-        if (vet[i]!= null) {
-            console.log(vet[i])
-           inp.value = vet[i].toString()
+        if (vet[i] != null) {
+            inp.value = vet[i].toString()
+        }
+        inp.valur = "error"
+    }
+}
+
+
+function change() {
+    let inp = document.getElementById('textMain')
+
+    for (let i = 0; i < inp.value.length; i++) {
+        console.log(inp.value)
+        if (inp.value[i] != "/" && inp.value[i] != "+" && inp.value[i] != "-" && inp.value[i] != "×" && isNaN(inp.value[i]) == true) {
+            inp.value = retirar(inp.value, i)
         }
     }
+}
+
+
+function retirar(vet, i) {
+
+    let aux = ""
+    for (let j = 0; j < vet.length; j++) {
+        if (j != i) {
+            aux += vet[j]
+        }
+
+    }
+    return aux
 }
