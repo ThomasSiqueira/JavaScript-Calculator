@@ -23,6 +23,10 @@ button {
     color: rgb(48, 62, 122);
     font-size: 22px;
 }
+button:hover {
+
+    background-color: brown;
+}
 
 /*TOP BAR*/
 #topBar {
@@ -41,7 +45,7 @@ button {
     width: 223px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgb(73, 120, 161);
+    background-color: rgb(37, 70, 141);
     border-radius: 5px;
 }
 
@@ -55,6 +59,27 @@ button {
     background-color: rgb(116, 162, 231);
 }
 
+#main{
+    position: relative;
+    bottom: 0px;
+    width: calc(100% - 4px);
+    height: 100%;
+    bottom: 0;
+    background-color: rgb(240, 255, 255);
+}
+
+#textMain{
+    position: absolute;
+    background-color: transparent;
+    top: 90px;
+    text-align: end;
+    border: none;
+    font-size: 20px;
+    height: 40px;
+    width: 100%;
+    text-decoration: none;
+}
+
 #buttons {
     position: absolute;
     bottom: 7px;
@@ -62,8 +87,6 @@ button {
     transform: translate(-50%);
     height: 264px;
     width: 95%;
-    background-color: brown;
-
 }
 
 #dirButtons {
@@ -72,7 +95,6 @@ button {
     right: 0px;
     width: 53px;
     height: calc(100% - 0.1px);
-    background-color: rgb(73, 120, 161);
 }
 
 #dirButtons button {
@@ -81,7 +103,12 @@ button {
     width: 49px;
     height: 49px;
     margin: 2px;
-    background-color: rgb(41, 172, 196);
+    background-color: rgb(48, 140, 202);
+}
+#dirButtons button:hover {
+
+    background-color: rgb(47, 100, 161);
+    
 }
 
 #result button {
@@ -99,7 +126,6 @@ button {
     left: 0px;
     height: 54px;
     width: calc(100% - 53px);
-    background-color: rgb(73, 120, 161);
 }
 
 #topButtons ul li {
@@ -119,7 +145,12 @@ button {
     width: 49px;
     height: 49px;
     margin: 0px;
-    background-color: rgb(41, 172, 196);
+    background-color: rgb(48, 140, 202);
+}
+
+#topButtons button:hover {
+
+    background-color: rgb(47, 100, 161);
 }
 
 #numbers {
@@ -128,7 +159,6 @@ button {
     left: 0px;
     width: 159px;
     height: calc(100% - 54px);
-    background-color: rgb(73, 120, 161);
 }
 
 .numbH {
@@ -143,7 +173,12 @@ button {
     width: 49px;
     height: 49px;
     margin-top: 4px;
-    background-color: rgb(41, 172, 196);
+    background-color: rgb(48, 140, 202);
+}
+
+.numbH button:hover {
+
+    background-color: rgb(47, 100, 161);
 }
 
 

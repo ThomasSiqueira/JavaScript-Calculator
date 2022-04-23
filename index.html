@@ -22,24 +22,25 @@
     </div>
     <div id="bodyDiv">
         <div id="screem">
+                <input id="textMain" type="text" value="0">
 
         </div>
         <div id="buttons">
 
             <div id="dirButtons">
                 <ul>
-                    <li><button><i class="fa-solid fa-divide"></i></button></li>
-                    <li><button><i class="fa-solid fa-xmark"></i></button></li>
-                    <li><button><i class="fa-solid fa-minus"></i></button></li>
-                    <li><button><i class="fa-solid fa-plus"></i></button></li>
-                    <li id="result"><button class="whiteButton"><i class="fa-solid fa-equals"></i></button></li>
+                    <li><button id="divider" value="/" onclick="add(value)"><i class="fa-solid fa-divide"></i></button></li>
+                    <li><button id="multiplier" value="×" onclick="add(value)"><i class="fa-solid fa-xmark"></i></button></li>
+                    <li><button id="subtraction" value="-" onclick="add(value)"><i class="fa-solid fa-minus"></i></button></li>
+                    <li><button id="sum" value="+" onclick="add(value)"><i class="fa-solid fa-plus"></i></button></li>
+                    <li id="result"><button class="whiteButton" onclick="parts()"><i class="fa-solid fa-equals"></i></button></li>
                 </ul>
             </div>
             <div id="topButtons">
                 <ul class="top">
-                    <li><button ><i class="fa-solid fa-percent"></i></button></li>
-                    <li><button class="redButton"><i class="fa-solid fa-c"></i></button></li>
-                    <li><button class="redButton"><i class="fa-solid fa-angle-left"></i></button></li>
+                    <li><button id="percent" value="%" onclick="add(value)"><i class="fa-solid fa-percent"></i></button></li>
+                    <li><button class="redButton" id="clear"  onclick="clearAll()"><i class="fa-solid fa-c"></i></button></li>
+                    <li><button class="redButton" id="back" onclick="back()"><i class="fa-solid fa-angle-left"></i></button></li>
                 </ul>
 
             </div>
@@ -47,26 +48,26 @@
                 <ul>
                     <li class="numbH">
                         <ul>
-                            <li><button>7</button></li>
-                            <li><button>4</button></li>
-                            <li><button>1</button></li>
-                            <li><button>ANS</button></li>
+                            <li><button id="seven" value="7" onclick="add(value)">7</button></li>
+                            <li><button id="four" value="4" onclick="add(value)">4</button></li>
+                            <li><button id="one" value="1" onclick="add(value)">1</button></li>
+                            <li><button id="ans">ANS</button></li>
                         </ul>
                     </li>
                     <li class="numbH">
                         <ul>
-                            <li><button>8</button></li>
-                            <li><button>5</button></li>
-                            <li><button>2</button></li>
-                            <li><button>0</button></li>
+                            <li><button id="eight" value="8" onclick="add(value)">8</button></li>
+                            <li><button id="five" value="5" onclick="add(value)">5</button></li>
+                            <li><button id="two" value="2" onclick="add(value)">2</button></li>
+                            <li><button id="zero" value="0" onclick="add(value)">0</button></li>
                         </ul>
                     </li>
                     <li class="numbH">
                         <ul>
-                            <li><button>9</button></li>
-                            <li><button>6</button></li>
-                            <li><button>3</button></li>
-                            <li><button>,</button></li>
+                            <li><button id="nine" value="9" onclick="add(value)">9</button></li>
+                            <li><button id="six" value="6" onclick="add(value)">6</button></li>
+                            <li><button id="three" value="3" onclick="add(value)">3</button></li>
+                            <li><button id="coma" value="." onclick="add(value)">,</button></li>
                         </ul>
                     </li>
                 </ul>
@@ -80,6 +81,9 @@
 
     </div>
 
+
+
+    <script src="scrypt.js"></script>
 </body>
 
 </html>
