@@ -71,6 +71,8 @@ button:hover {
     height: 130px;
     width: 93%;
     background-color: rgb(116, 162, 231);
+    overflow-x: hidden;
+    
 }
 
 #main {
@@ -80,6 +82,7 @@ button:hover {
     height: 100%;
     bottom: 0;
     background-color: rgb(240, 255, 255);
+    overflow-x: hidden;
 }
 #textUpThree {
     position: absolute;

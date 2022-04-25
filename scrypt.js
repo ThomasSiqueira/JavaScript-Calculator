@@ -1,4 +1,4 @@
-
+document.getElementById('textMain').value = "0"
 document.onkeydown = checkKey
 
 function checkKey(e) {
@@ -13,7 +13,7 @@ function checkKey(e) {
     if (keycode == 8) {
         back()
     }
-    if (keycode == 103) {add(7)}
+    if (keycode == 103) { add(7) }
     if (keycode == 104) {
         add(8)
     }
@@ -63,12 +63,15 @@ function checkKey(e) {
 
 function add(a) {
     let inp = document.getElementById('textMain')
-    
+
     let anterior = inp.value[inp.value.length - 1]
 
-    if (a == "+" || a == "/" || a == "×" || a == "-") {
-        
-        if (anterior == "+" || anterior == "/" || anterior == "×" || anterior == "-") {
+    if (a == "+" || a == "/" || a == "×") {
+        if (inp.value == "0") {
+
+        }
+
+        else if (anterior == "+" || anterior == "/" || anterior == "×" || anterior == "-") {
 
         }
         else {
@@ -106,7 +109,7 @@ function clearAll() {
     upScreenTwo.value = ""
     upScreenOne.value = ""
     middle.value = ""
-    inp.value= ""
+    inp.value = "0"
 }
 
 function back() {
@@ -140,7 +143,18 @@ function parts() {
         let val = inp.value[i]
 
         if (val == "/" || val == "+" || val == "-" || val == "×") {
-            if (aux != "") {
+            if (val == "-") {
+                if (aux != "") {
+                    vet[j] = aux
+                    j++
+                    aux = ""
+                }
+                vet[j] = val
+                j++
+
+            }
+
+            else if (aux != "") {
                 vet[j] = aux
                 j++
                 aux = ""
@@ -159,6 +173,26 @@ function parts() {
 }
 
 function calc(vet) {
+
+    console.log(vet)
+    for (let i = 0; i < vet.length; i++) {
+        if (vet[i - 1] == "/" || vet[i - 1] == "+" || vet[i - 1] == "-" || vet[i - 1] == "×"||vet[i-1]==undefined ){
+            let prox = ""
+            if (vet[i] == "-") {
+                j = i + 1
+                while (vet[j] == null) {
+                    j = j + 1
+                }
+                prox = vet[j]
+                vet[j] = null
+
+                vet[i+1] = (0 - Number(prox))
+                vet[i] = null
+            }
+        }
+
+    }
+
     for (let i = 0; i < vet.length; i++) {
         if (vet[i] == "×" || vet[i] == "/") {
             if (vet[i] == "×") {
@@ -189,7 +223,7 @@ function calc(vet) {
             }
         }
     }
-
+    console.log(vet)
     for (let i = 0; i < vet.length; i++) {
 
         let ant = ""
@@ -240,12 +274,11 @@ function calc(vet) {
         if (vet[i] != null) {
             inp.value = vet[i].toString()
         }
-        inp.valur = "error"
     }
 }
-
+/*  NAO UTILIZADAS
 function retirar(vet, i) {
-    console.log("aqiu",i,vet)
+    console.log("aqiu", i, vet)
     let aux = ""
     for (let j = 0; j < vet.length; j++) {
         if (j != i) {
@@ -254,3 +287,11 @@ function retirar(vet, i) {
     }
     return aux
 }
+
+
+function numeroCasas(string) {
+
+
+}
+
+*/
